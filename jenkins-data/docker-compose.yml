@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins  # you can find this in "docker images"
+    ports:
+      - '8080:8080'  # map container port to external port, first one is external, second one is container
+    volumes:
+      - $PWD/jenkins_home:/var/jenkins_home  # map the local folder to the location in the container
+    networks:
+      - net
+networks:
+  net:
