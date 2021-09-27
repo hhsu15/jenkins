@@ -9,5 +9,12 @@ services:
       - $PWD/jenkins_home:/var/jenkins_home  # map the local folder to the location in the container
     networks:
       - net
+  remote_host:
+    container_name: remote-host
+    image: remote-host
+    build: 
+      context: centos
+    networks:
+      - net
 networks:
   net:
